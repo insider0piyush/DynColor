@@ -3,6 +3,7 @@ package com.insider0piyush.dyncolor
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.color.DynamicColors
 import com.insider0piyush.dyncolor.databinding.ActivitySecondBinding
 
 class SecondActivity : AppCompatActivity(){
@@ -17,6 +18,8 @@ class SecondActivity : AppCompatActivity(){
         binding.switch1.setOnCheckedChangeListener{ switch , enable  ->
             if( switch.isChecked && enable){
                 saveSetting()
+                DynamicColors.applyToActivitiesIfAvailable(application)
+                recreate()
                 showToast("ON")
             }else{
                 saveSetting()
