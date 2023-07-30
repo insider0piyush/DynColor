@@ -5,7 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.insider0piyush.dyncolor.databinding.ActivitySecondBinding
 
-class SecondActivity : AppCompatActivity() {
+class SecondActivity : AppCompatActivity(){
     private lateinit var binding: ActivitySecondBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,17 +14,16 @@ class SecondActivity : AppCompatActivity() {
 
         loadSetting()
 
-
         binding.switch1.setOnCheckedChangeListener{ switch , enable  ->
-            if(switch.isChecked && enable ){
+            if( switch.isChecked && enable){
                 saveSetting()
                 showToast("ON")
             }else{
+                saveSetting()
                 showToast("OFF")
             }
         }
     }
-
     private fun saveSetting() {
         val sharedPreferences = getSharedPreferences("SharedPreferenceDemo",MODE_PRIVATE)
         val editor = sharedPreferences.edit()
